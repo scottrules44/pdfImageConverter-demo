@@ -111,7 +111,12 @@ local imageToPdf= widget.newButton( {
          
         native.showPopup( "quickLook", quickLookOptions )
       else
-        
+        local androidPreview = require("plugin.androidPreview")
+        if (androidPreview) then
+            androidPreview.show(system.pathForFile("corona.pdf", system.DocumentsDirectory))
+        else
+            native.showAlert( "Please get the android preview plugin to show pdf", "", {"Ok"} )
+        end
       end
    end
 } )
