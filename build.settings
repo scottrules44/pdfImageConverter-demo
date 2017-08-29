@@ -1,0 +1,25 @@
+settings =
+{
+	iphone =
+	{
+		plist =
+        {
+
+        },
+	},
+    android =
+    {
+    	
+    },
+    plugins =
+    {
+        ["CoronaProvider.native.popup.quickLook"] =
+        {
+            publisherId = "com.coronalabs"
+        },
+        ["plugin.pdfImageConverter"] =
+        {
+            publisherId = "tech.scotth"
+        },
+    },
+}
