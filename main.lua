@@ -81,16 +81,16 @@ end
 copyFile( "coronaImage.png.txt", nil, "coronaImage.png", system.DocumentsDirectory, true )
 
 local pdfToImage= widget.newButton( {
-	x = display.contentCenterX,
-	y = display.contentCenterY-150,
-	label = "Pdf to Image",
-	onRelease = function (  )
-	   pdfImageConverter.toImage(system.pathForFile( "sample.pdf"), nil,system.pathForFile("pdfImage.jpeg", system.DocumentsDirectory))
+    x = display.contentCenterX,
+    y = display.contentCenterY-150,
+    label = "Pdf to Image",
+    onRelease = function (  )
+       pdfImageConverter.toImage(system.pathForFile( "sample.pdf"), nil,system.pathForFile("pdfImage.jpeg", system.DocumentsDirectory))
      local pdfImage = display.newImage( "pdfImage.jpeg", system.DocumentsDirectory)
      pdfImage:scale( .2, .2 )
      pdfImage.x = display.contentCenterX
      pdfImage.y = display.contentCenterY-50
-	end
+    end
 } )
 
 local imageToPdf= widget.newButton( {
@@ -110,13 +110,12 @@ local imageToPdf= widget.newButton( {
         }
          
         native.showPopup( "quickLook", quickLookOptions )
-      else
-        local androidPreview = require("plugin.androidPreview")
-        if (androidPreview) then
-            androidPreview.show(system.pathForFile("corona.pdf", system.DocumentsDirectory))
-        else
-            native.showAlert( "Please get the android preview plugin to show pdf", "", {"Ok"} )
-        end
+      elseif system.getInfo("environment") == "device" then
+        pdfImageConverter.toImage(system.pathForFile( "corona.pdf", system.DocumentsDirectory), nil,system.pathForFile("pdfImage2.jpeg", system.DocumentsDirectory))
+        local pdfImage = display.newImage( "pdfImage2.jpeg", system.DocumentsDirectory )
+        pdfImage:scale( .2, .2 )
+        pdfImage.x = display.contentCenterX
+        pdfImage.y = display.contentCenterY+120
       end
    end
 } )

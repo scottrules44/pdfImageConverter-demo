@@ -15,16 +15,13 @@ settings =
     {
         ["CoronaProvider.native.popup.quickLook"] =
         {
-            publisherId = "com.coronalabs"
+            publisherId = "com.coronalabs",
+            supportedPlatforms = { iphone = true },
         },
         ["plugin.pdfImageConverter"] =
         {
             publisherId = "tech.scotth",
-            supportedPlatforms = { iOS = true }
+            
         },
-        ["plugin.androidPreview"] =
-            {
-                publisherId = "tech.scotth",
-            },
     },
 }
