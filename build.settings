@@ -21,6 +21,7 @@ settings =
         ["plugin.pdfImageConverter"] =
         {
             publisherId = "tech.scotth",
+	    marketplaceId = "replace"
             
         },
     },
